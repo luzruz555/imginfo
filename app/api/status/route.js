@@ -23,14 +23,14 @@ export async function GET(request) {
 
   const factionDisplay = faction === 'ETERNAL ARKIVE' ? 'ETERNAL\nARKIVE' : faction;
 
-  return new ImageResponse(
+  const response = new ImageResponse(
     (
       <div style={{ width: '100%', height: '100%', display: 'flex', position: 'relative', fontFamily: 'Ssaragnun' }}>
         <img src={baseUrl + '/status-bg.png'} style={{ position: 'absolute', width: '100%', height: '100%' }} />
         <div style={{ position: 'absolute', left: '45px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{location}</div>
-        <div style={{ position: 'absolute', left: '315px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{date}</div>
-        <div style={{ position: 'absolute', left: '455px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{time}</div>
-        <div style={{ position: 'absolute', left: '610px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{job}</div>
+        <div style={{ position: 'absolute', left: '327px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{date}</div>
+        <div style={{ position: 'absolute', left: '467px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{time}</div>
+        <div style={{ position: 'absolute', left: '620px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{job}</div>
         <div style={{ position: 'absolute', left: '15px', top: '250px', width: '190px', color: 'white', fontSize: '28px', display: 'flex', justifyContent: 'center', textAlign: 'center', whiteSpace: 'pre-wrap' }}>{factionDisplay}</div>
         <div style={{ position: 'absolute', left: '230px', top: '215px', color: 'white', fontSize: '14px', display: 'flex', flexDirection: 'column' }}><span>{char} | {emoji} | {relation}</span></div>
         <div style={{ position: 'absolute', left: '230px', top: '375px', color: 'white', fontSize: '14px', display: 'flex' }}>{incident}</div>
@@ -42,4 +42,7 @@ export async function GET(request) {
       fonts: [{ name: 'Ssaragnun', data: fontData, style: 'normal' }],
     }
   );
-    }
+
+  response.headers.set('Cache-Control', 'public, max-age=60');
+  return response;
+}
