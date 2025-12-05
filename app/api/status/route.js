@@ -27,12 +27,12 @@ export async function GET(request) {
     (
       <div style={{ width: '100%', height: '100%', display: 'flex', position: 'relative', fontFamily: 'Ssaragnun' }}>
         <img src={baseUrl + '/status-bg.png'} style={{ position: 'absolute', width: '100%', height: '100%' }} />
-        <div style={{ position: 'absolute', left: '30px', top: '95px', color: 'white', fontSize: '22px', display: 'flex' }}>{location}</div>
-        <div style={{ position: 'absolute', left: '295px', top: '95px', color: 'white', fontSize: '22px', display: 'flex' }}>{date}</div>
-        <div style={{ position: 'absolute', left: '435px', top: '95px', color: 'white', fontSize: '22px', display: 'flex' }}>{time}</div>
-        <div style={{ position: 'absolute', left: '590px', top: '95px', color: 'white', fontSize: '22px', display: 'flex' }}>{job}</div>
-        <div style={{ position: 'absolute', left: '20px', top: '250px', width: '190px', color: 'white', fontSize: '28px', display: 'flex', justifyContent: 'center', textAlign: 'center', whiteSpace: 'pre-wrap' }}>{factionDisplay}</div>
-        <div style={{ position: 'absolute', left: '230px', top: '215px', color: 'white', fontSize: '14px', display: 'flex', flexDirection: 'column' }}><span>{char} {emoji}</span><span>{relation}</span></div>
+        <div style={{ position: 'absolute', left: '45px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{location}</div>
+        <div style={{ position: 'absolute', left: '310px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{date}</div>
+        <div style={{ position: 'absolute', left: '450px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{time}</div>
+        <div style={{ position: 'absolute', left: '605px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{job}</div>
+        <div style={{ position: 'absolute', left: '18px', top: '250px', width: '190px', color: 'white', fontSize: '28px', display: 'flex', justifyContent: 'center', textAlign: 'center', whiteSpace: 'pre-wrap' }}>{factionDisplay}</div>
+        <div style={{ position: 'absolute', left: '230px', top: '215px', color: 'white', fontSize: '14px', display: 'flex', flexDirection: 'column' }}><span>{char} | {emoji} | {relation}</span></div>
         <div style={{ position: 'absolute', left: '230px', top: '375px', color: 'white', fontSize: '14px', display: 'flex' }}>{incident}</div>
       </div>
     ),
