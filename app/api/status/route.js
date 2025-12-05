@@ -17,157 +17,27 @@ export async function GET(request) {
 
   const host = request.headers.get('host');
   const protocol = host.includes('localhost') ? 'http' : 'https';
-  const baseUrl = `${protocol}://${host}`;
+  const baseUrl = protocol + '://' + host;
 
-  const fontData = await fetch(`${baseUrl}/fonts/ssaragnun.otf`).then((res) => res.arrayBuffer());
+  const fontData = await fetch(baseUrl + '/fonts/ssaragnun.otf').then(function(res) { return res.arrayBuffer(); });
 
   return new ImageResponse(
     (
-      <div
-        style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          position: 'relative',
-          fontFamily: 'Ssaragnun',
-        }}
-      >
-        <img
-          src={`${baseUrl}/status-bg.png`}
-          style={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-          }}
-        />
-        
-        <div
-          style={{
-            position: 'absolute',
-            left: '55px',
-            top: '68px',
-            color: 'white',
-            fontSize: '24px',
-            display: 'flex',
-          }}
-        >
-          {location}
-        </div>
-
-        <div
-          style={{
-            position: 'absolute',
-            left: '330px',
-            top: '68px',
-            color: 'white',
-            fontSize: '24px',
-            display: 'flex',
-          }}
-        >
-          {date}
-        </div>
-
-        <div
-          style={{
-            position: 'absolute',
-            left: '480px',
-            top: '68px',
-            color: 'white',
-            fontSize: '24px',
-            display: 'flex',
-          }}
-        >
-          {time}
-        </div>
-
-        <div
-          style={{
-            position: 'absolute',
-            left: '640px',
-            top: '68px',
-            color: 'white',
-            fontSize: '24px',
-            display: 'flex',
-          }}
-        >
-          {job}
-        </div>
-
-        <div
-          style={{
-            position: 'absolute',
-            left: '20px',
-            top: '240px',
-            width: '180px',
-            color: 'white',
-            fontSize: '22px',
-            display: 'flex',
-            justifyContent: 'center',
-            textAlign: 'center',
-          }}
-        >
-          {faction}
-        </div>
-
-        <div
-          style={{
-            position: 'absolute',
-            left: '280px',
-            top: '175px',
-            color: 'white',
-            fontSize: '22px',
-            display: 'flex',
-            gap: '20px',
-          }}
-        >
-          <span>{char}</span>
-          <span>{emoji}</span>
-          <span>{relation}</span>
-        </div>
-
-        <div
-          style={{
-            position: 'absolute',
-            left: '280px',
-            top: '355px',
-            color: 'white',
-            fontSize: '22px',
-            display: 'flex',
-          }}
-        >
-          {incident}
-        </div>
+      <div style={{ width: '100%', height: '100%', display: 'flex', position: 'relative', fontFamily: 'Ssaragnun' }}>
+        <img src={baseUrl + '/status-bg.png'} style={{ position: 'absolute', width: '100%', height: '100%' }} />
+        <div style={{ position: 'absolute', left: '55px', top: '68px', color: 'white', fontSize: '24px', display: 'flex' }}>{location}</div>
+        <div style={{ position: 'absolute', left: '330px', top: '68px', color: 'white', fontSize: '24px', display: 'flex' }}>{date}</div>
+        <div style={{ position: 'absolute', left: '480px', top: '68px', color: 'white', fontSize: '24px', display: 'flex' }}>{time}</div>
+        <div style={{ position: 'absolute', left: '640px', top: '68px', color: 'white', fontSize: '24px', display: 'flex' }}>{job}</div>
+        <div style={{ position: 'absolute', left: '20px', top: '240px', width: '180px', color: 'white', fontSize: '22px', display: 'flex', justifyContent: 'center', textAlign: 'center' }}>{faction}</div>
+        <div style={{ position: 'absolute', left: '280px', top: '175px', color: 'white', fontSize: '22px', display: 'flex', gap: '20px' }}><span>{char}</span><span>{emoji}</span><span>{relation}</span></div>
+        <div style={{ position: 'absolute', left: '280px', top: '355px', color: 'white', fontSize: '22px', display: 'flex' }}>{incident}</div>
       </div>
     ),
     {
       width: 1000,
       height: 426,
-      fonts: [
-        {
-          name: 'Ssaragnun',
-          data: fontData,
-          style: 'normal',
-        },
-      ],
-    }
-  );
-    }            display: 'flex',
-          }}
-        >
-          {incident}
-        </div>
-      </div>
-    ),
-    {
-      width: 1000,
-      height: 426,
-      fonts: [
-        {
-          name: 'Ssaragnun',
-          data: fontData,
-          style: 'normal',
-        },
-      ],
+      fonts: [{ name: 'Ssaragnun', data: fontData, style: 'normal' }],
     }
   );
     }
