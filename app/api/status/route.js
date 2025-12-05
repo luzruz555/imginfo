@@ -25,13 +25,13 @@ export async function GET(request) {
     (
       <div style={{ width: '100%', height: '100%', display: 'flex', position: 'relative', fontFamily: 'Ssaragnun' }}>
         <img src={baseUrl + '/status-bg.png'} style={{ position: 'absolute', width: '100%', height: '100%' }} />
-        <div style={{ position: 'absolute', left: '55px', top: '68px', color: 'white', fontSize: '24px', display: 'flex' }}>{location}</div>
-        <div style={{ position: 'absolute', left: '330px', top: '68px', color: 'white', fontSize: '24px', display: 'flex' }}>{date}</div>
-        <div style={{ position: 'absolute', left: '480px', top: '68px', color: 'white', fontSize: '24px', display: 'flex' }}>{time}</div>
-        <div style={{ position: 'absolute', left: '640px', top: '68px', color: 'white', fontSize: '24px', display: 'flex' }}>{job}</div>
-        <div style={{ position: 'absolute', left: '20px', top: '240px', width: '180px', color: 'white', fontSize: '22px', display: 'flex', justifyContent: 'center', textAlign: 'center' }}>{faction}</div>
-        <div style={{ position: 'absolute', left: '280px', top: '175px', color: 'white', fontSize: '22px', display: 'flex', gap: '20px' }}><span>{char}</span><span>{emoji}</span><span>{relation}</span></div>
-        <div style={{ position: 'absolute', left: '280px', top: '355px', color: 'white', fontSize: '22px', display: 'flex' }}>{incident}</div>
+        <div style={{ position: 'absolute', left: '55px', top: '100px', color: 'white', fontSize: '24px', display: 'flex' }}>{location}</div>
+        <div style={{ position: 'absolute', left: '330px', top: '100px', color: 'white', fontSize: '24px', display: 'flex' }}>{date}</div>
+        <div style={{ position: 'absolute', left: '480px', top: '100px', color: 'white', fontSize: '24px', display: 'flex' }}>{time}</div>
+        <div style={{ position: 'absolute', left: '640px', top: '100px', color: 'white', fontSize: '24px', display: 'flex' }}>{job}</div>
+        <div style={{ position: 'absolute', left: '20px', top: '280px', width: '180px', color: 'white', fontSize: '22px', display: 'flex', justifyContent: 'center', textAlign: 'center' }}>{faction}</div>
+        <div style={{ position: 'absolute', left: '280px', top: '220px', color: 'white', fontSize: '22px', display: 'flex', gap: '20px' }}><span>{char}</span><span>{emoji}</span><span>{relation}</span></div>
+        <div style={{ position: 'absolute', left: '280px', top: '390px', color: 'white', fontSize: '22px', display: 'flex' }}>{incident}</div>
       </div>
     ),
     {
