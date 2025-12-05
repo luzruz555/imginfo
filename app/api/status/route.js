@@ -54,4 +54,5 @@ export async function GET(request) {
   );
 
   response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+  return response;
 }
