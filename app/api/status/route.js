@@ -9,7 +9,7 @@ export async function GET(request) {
   const date = searchParams.get('date') || 'MM/DD';
   const time = searchParams.get('time') || 'HH:MM';
   const job = searchParams.get('job') || '???';
-  const faction = searchParams.get('faction') || '???';
+  let faction = searchParams.get('faction') || '???';
   const char = searchParams.get('char') || '???';
   const emoji = searchParams.get('emoji') || '?';
   const relation = searchParams.get('relation') || '???';
@@ -21,17 +21,19 @@ export async function GET(request) {
 
   const fontData = await fetch(baseUrl + '/fonts/ssaragnun.otf').then(function(res) { return res.arrayBuffer(); });
 
+  const factionDisplay = faction === 'ETERNAL ARKIVE' ? 'ETERNAL\nARKIVE' : faction;
+
   return new ImageResponse(
     (
       <div style={{ width: '100%', height: '100%', display: 'flex', position: 'relative', fontFamily: 'Ssaragnun' }}>
         <img src={baseUrl + '/status-bg.png'} style={{ position: 'absolute', width: '100%', height: '100%' }} />
-        <div style={{ position: 'absolute', left: '55px', top: '100px', color: 'white', fontSize: '24px', display: 'flex' }}>{location}</div>
-        <div style={{ position: 'absolute', left: '330px', top: '100px', color: 'white', fontSize: '24px', display: 'flex' }}>{date}</div>
-        <div style={{ position: 'absolute', left: '480px', top: '100px', color: 'white', fontSize: '24px', display: 'flex' }}>{time}</div>
-        <div style={{ position: 'absolute', left: '640px', top: '100px', color: 'white', fontSize: '24px', display: 'flex' }}>{job}</div>
-        <div style={{ position: 'absolute', left: '20px', top: '280px', width: '180px', color: 'white', fontSize: '22px', display: 'flex', justifyContent: 'center', textAlign: 'center' }}>{faction}</div>
-        <div style={{ position: 'absolute', left: '280px', top: '220px', color: 'white', fontSize: '22px', display: 'flex', gap: '20px' }}><span>{char}</span><span>{emoji}</span><span>{relation}</span></div>
-        <div style={{ position: 'absolute', left: '280px', top: '390px', color: 'white', fontSize: '22px', display: 'flex' }}>{incident}</div>
+        <div style={{ position: 'absolute', left: '30px', top: '95px', color: 'white', fontSize: '22px', display: 'flex' }}>{location}</div>
+        <div style={{ position: 'absolute', left: '295px', top: '95px', color: 'white', fontSize: '22px', display: 'flex' }}>{date}</div>
+        <div style={{ position: 'absolute', left: '435px', top: '95px', color: 'white', fontSize: '22px', display: 'flex' }}>{time}</div>
+        <div style={{ position: 'absolute', left: '590px', top: '95px', color: 'white', fontSize: '22px', display: 'flex' }}>{job}</div>
+        <div style={{ position: 'absolute', left: '20px', top: '250px', width: '190px', color: 'white', fontSize: '28px', display: 'flex', justifyContent: 'center', textAlign: 'center', whiteSpace: 'pre-wrap' }}>{factionDisplay}</div>
+        <div style={{ position: 'absolute', left: '230px', top: '215px', color: 'white', fontSize: '14px', display: 'flex', flexDirection: 'column' }}><span>{char} {emoji}</span><span>{relation}</span></div>
+        <div style={{ position: 'absolute', left: '230px', top: '375px', color: 'white', fontSize: '14px', display: 'flex' }}>{incident}</div>
       </div>
     ),
     {
