@@ -53,6 +53,5 @@ export async function GET(request) {
     }
   );
 
-  response.headers.set('Cache-Control', 'public, max-age=60');
-  return response;
+  response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
 }
