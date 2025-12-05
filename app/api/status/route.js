@@ -32,23 +32,23 @@ export async function GET(request) {
     (
       <div style={{ width: '100%', height: '100%', display: 'flex', position: 'relative', fontFamily: 'Ssaragnun' }}>
         <img src={baseUrl + '/status-bg.png'} style={{ position: 'absolute', width: '100%', height: '100%' }} />
-        <div style={{ position: 'absolute', left: '42px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{location}</div>
-        <div style={{ position: 'absolute', left: '327px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{date}</div>
-        <div style={{ position: 'absolute', left: '472px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{time}</div>
-        <div style={{ position: 'absolute', left: '620px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{job}</div>
-        <div style={{ position: 'absolute', left: '15px', top: '250px', width: '190px', color: 'white', fontSize: '30px', fontWeight: 'bold', display: 'flex', justifyContent: 'center', textAlign: 'center', whiteSpace: 'pre-wrap' }}>{factionDisplay}</div>
-        <div style={{ position: 'absolute', left: '15px', top: '287px', width: '190px', color: 'white', fontSize: '15px', display: 'flex', justifyContent: 'center', textAlign: 'center' }}>{ability}</div>
-        <div style={{ position: 'absolute', left: '230px', top: '215px', color: 'white', fontSize: '14px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+        <div style={{ position: 'absolute', left: '84px', top: '220px', color: 'white', fontSize: '44px', display: 'flex' }}>{location}</div>
+        <div style={{ position: 'absolute', left: '654px', top: '220px', color: 'white', fontSize: '44px', display: 'flex' }}>{date}</div>
+        <div style={{ position: 'absolute', left: '944px', top: '220px', color: 'white', fontSize: '44px', display: 'flex' }}>{time}</div>
+        <div style={{ position: 'absolute', left: '1240px', top: '220px', color: 'white', fontSize: '44px', display: 'flex' }}>{job}</div>
+        <div style={{ position: 'absolute', left: '30px', top: '500px', width: '380px', color: 'white', fontSize: '60px', fontWeight: 'bold', display: 'flex', justifyContent: 'center', textAlign: 'center', whiteSpace: 'pre-wrap' }}>{factionDisplay}</div>
+        <div style={{ position: 'absolute', left: '30px', top: '574px', width: '380px', color: 'white', fontSize: '30px', display: 'flex', justifyContent: 'center', textAlign: 'center' }}>{ability}</div>
+        <div style={{ position: 'absolute', left: '460px', top: '430px', color: 'white', fontSize: '28px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {chars.map((c, i) => (
             <span key={i}>{c} | {emojis[i] || '?'} | {relations[i] || '???'}</span>
           ))}
         </div>
-        <div style={{ position: 'absolute', left: '230px', top: '375px', color: 'white', fontSize: '14px', display: 'flex' }}>{incident}</div>
+        <div style={{ position: 'absolute', left: '460px', top: '750px', color: 'white', fontSize: '28px', display: 'flex' }}>{incident}</div>
       </div>
     ),
     {
-      width: 1000,
-      height: 426,
+      width: 2000,
+      height: 852,
       fonts: [{ name: 'Ssaragnun', data: fontData, style: 'normal' }],
     }
   );
