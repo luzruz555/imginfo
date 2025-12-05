@@ -15,13 +15,10 @@ export async function GET(request) {
   const relation = searchParams.get('relation') || '???';
   const incident = searchParams.get('incident') || '???';
 
-  const fontData = await fetch(
-    new URL('../../public/fonts/ssaragnun.otf', import.meta.url)
-  ).then((res) => res.arrayBuffer());
+  const fontUrl = new URL('/public/fonts/ssaragnun.otf', request.url);
+  const fontData = await fetch(fontUrl).then((res) => res.arrayBuffer());
 
-  const baseUrl = process.env.VERCEL_URL 
-    ? `https://${process.env.VERCEL_URL}` 
-    : 'http://localhost:3000';
+  const baseUrl = `https://${process.env.VERCEL_URL || request.headers.get('host')}`;
 
   return new ImageResponse(
     (
@@ -153,4 +150,4 @@ export async function GET(request) {
       ],
     }
   );
-}
+    }
