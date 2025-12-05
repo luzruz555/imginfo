@@ -23,16 +23,24 @@ export async function GET(request) {
 
   const factionDisplay = faction === 'ETERNAL ARKIVE' ? 'ETERNAL\nARKIVE' : faction;
 
+  const chars = char.split('.');
+  const emojis = emoji.split('.');
+  const relations = relation.split('.');
+
   const response = new ImageResponse(
     (
       <div style={{ width: '100%', height: '100%', display: 'flex', position: 'relative', fontFamily: 'Ssaragnun' }}>
         <img src={baseUrl + '/status-bg.png'} style={{ position: 'absolute', width: '100%', height: '100%' }} />
         <div style={{ position: 'absolute', left: '45px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{location}</div>
         <div style={{ position: 'absolute', left: '327px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{date}</div>
-        <div style={{ position: 'absolute', left: '467px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{time}</div>
+        <div style={{ position: 'absolute', left: '472px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{time}</div>
         <div style={{ position: 'absolute', left: '620px', top: '110px', color: 'white', fontSize: '22px', display: 'flex' }}>{job}</div>
-        <div style={{ position: 'absolute', left: '15px', top: '250px', width: '190px', color: 'white', fontSize: '28px', display: 'flex', justifyContent: 'center', textAlign: 'center', whiteSpace: 'pre-wrap' }}>{factionDisplay}</div>
-        <div style={{ position: 'absolute', left: '230px', top: '215px', color: 'white', fontSize: '14px', display: 'flex', flexDirection: 'column' }}><span>{char} | {emoji} | {relation}</span></div>
+        <div style={{ position: 'absolute', left: '15px', top: '250px', width: '190px', color: 'white', fontSize: '30px', fontWeight: 'bold', display: 'flex', justifyContent: 'center', textAlign: 'center', whiteSpace: 'pre-wrap' }}>{factionDisplay}</div>
+        <div style={{ position: 'absolute', left: '230px', top: '215px', color: 'white', fontSize: '14px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          {chars.map((c, i) => (
+            <span key={i}>{c} | {emojis[i] || '?'} | {relations[i] || '???'}</span>
+          ))}
+        </div>
         <div style={{ position: 'absolute', left: '230px', top: '375px', color: 'white', fontSize: '14px', display: 'flex' }}>{incident}</div>
       </div>
     ),
